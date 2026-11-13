@@ -1,0 +1,41 @@
+# GitHub 공개 저장소에 올리는 것만 아래 «2»에 적는다. 나머지는 전부 올리지 않는다.
+# 올리는 것: 정리기 화면 · rules/ 의 규칙 파일 · data/ 의 예시 파일 두 개 · README · 정리/ 의 코드(.py)
+# 새 파일을 올리려면 «2»에 이름을 적는다. 적지 않으면 자동으로 빠진다.
+
+# 1. 어디에도 올리지 않는다 — 폴더 안에 무엇을 더 넣어도 올라가지 않게 먼저 잠근다
+*.csv
+*.xlsx
+*.xls
+tools/
+정리본/
+진단/
+.claude/
+.env
+.env.*
+.vercel/
+node_modules/
+__pycache__/
+.DS_Store
+
+# 2. 맨 위 폴더에서는 아래만 올린다
+/*
+!/.gitignore
+!/.vercelignore
+!/README.md
+!/index.html
+!/style.css
+!/app.js
+!/clean.js
+!/lib/
+!/rules/
+!/data/
+!/정리/
+
+# 3. 폴더 안에서도 정한 것만 — «1»에서 막은 csv · xlsx 중 예시 파일 두 개만 다시 연다
+/rules/*
+!/rules/*.json
+/data/*
+!/data/교육이수로그.csv
+!/data/상담이력.xlsx
+/정리/*
+!/정리/*.py
