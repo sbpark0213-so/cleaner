@@ -55,7 +55,8 @@
 
   // ── 규칙 ────────────────────────────────────────────
   async function loadRulesFor(name) {
-    const base = name.replace(/\.(xlsx|xls|csv)$/i, "");
+    // 맥은 한글 파일 이름을 자모를 풀어 쓴 형태(NFD)로 넘긴다. 배포된 규칙 파일 이름은 합친 형태(NFC)라서 맞춰 준다
+    const base = name.normalize("NFC").replace(/\.(xlsx|xls|csv)$/i, "");
     try {
       const r = await fetch(`rules/${encodeURIComponent(base)}.json`);
       S.rules = r.ok ? await r.json() : null;
